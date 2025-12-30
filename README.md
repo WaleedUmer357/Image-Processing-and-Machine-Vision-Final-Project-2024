@@ -2,31 +2,31 @@
 Machine vision 2024 final project on German traffic sign recognition with YOLO.
  Real-Time Traffic Sign Recognition with YOLOv5
 
- 🚦 Project Overview
+  Project Overview
 This project implements a real-time traffic sign recognition system using the YOLOv5 object detection algorithm trained on the German Traffic Sign Recognition Benchmark (GTSRB) dataset. The system detects and classifies 43 different types of traffic signs with high accuracy, suitable for applications in autonomous vehicles and intelligent transportation systems.
 
- 📊 Key Performance Metrics
+  Key Performance Metrics
 | Model | Precision | Recall | mAP@0.5 | mAP@0.5:0.95 |
 |-------|-----------|--------|----------|---------------|
 | YOLOv5s (SGD) | 90.7% | 89.5% | 92.0% | 86.9% |
 | YOLOv5s (Adam) | 77.2% | 67.4% | 71.2% | 67.0% |
 | Preliminary Model | ~95% | ~90% | ~95% | ~80% |
 
- 🎯 Project Objectives
+ Project Objectives
 1. Fine-tune YOLOv5 models for traffic sign detection on the GTSRB dataset
 2. Implement comprehensive data augmentation strategies
 3. Compare SGD and Adam optimizer performance
 4. Achieve ≥95% accuracy for traffic sign classification
 5. Develop a real-time detection system suitable for ITS applications
 
- 📁 Dataset Information
+  Dataset Information
 - Dataset: German Traffic Sign Recognition Benchmark (GTSRB)
 - Original Images: 43,000+ realistic traffic sign images
 - Classes: 43 different traffic sign categories
 - Final Augmented Dataset: 67,020 images
 - Data Split: Train/Validation/Test with balanced class distribution
 
- 🔧 Data Augmentation Techniques
+  Data Augmentation Techniques
  Spatial Transformations
 - Random 90° rotations (p=0.5)
 - Horizontal and vertical flips (p=0.5)
@@ -41,7 +41,7 @@ This project implements a real-time traffic sign recognition system using the YO
 - Channel shuffling (p=0.2)
 - Motion blur (p=0.2)
 
- 🏗️ Model Architecture
+  Model Architecture
 - Base Model: YOLOv5s (small variant)
 - Backbone: CSPDarknet
 - Neck: PANet
@@ -49,7 +49,7 @@ This project implements a real-time traffic sign recognition system using the YO
 - Activation Functions: SiLU (hidden layers), Sigmoid (output layer)
 - Loss Functions: BCE for classification/objectness, CIoU for localization
 
- ⚙️ Training Configuration
+  Training Configuration
  Hardware
 - GPU: Tesla V100 (16GB) on Google Colab
 - CPU: For preliminary model training
@@ -63,7 +63,7 @@ This project implements a real-time traffic sign recognition system using the YO
 - Learning Rate: 0.001 (Adam), adaptive scheduling
 - Loss Functions: Box, objectness, and classification losses
 
- 📈 Evaluation Metrics
+ Evaluation Metrics
 - Precision: Proportion of correctly identified traffic signs
 - Recall: Ability to identify all relevant traffic signs
 - mAP@0.5: Mean Average Precision at IoU threshold 0.5
@@ -71,14 +71,14 @@ This project implements a real-time traffic sign recognition system using the YO
 - F1-Score: Harmonic mean of precision and recall
 - Confusion Matrix: Class-wise performance analysis
 
- 🔍 Key Findings
+  Key Findings
 1. SGD vs Adam: SGD showed better generalization with 90.7% precision vs Adam's 77.2%
 2. Data Imbalance: Class distribution imbalance affected minority class performance
 3. Augmentation Impact: Extensive augmentation improved model robustness
 4. Convergence: SGD required more epochs but achieved better final performance
 5. Real-time Capability: Both models demonstrated real-time detection capabilities
 
- 🚀 Installation & Usage
+  Installation & Usage
 
  Prerequisites
 ```bash
@@ -121,7 +121,7 @@ results = model('traffic_image.jpg')
 results.show()
 ```
 
- 📂 Project Structure
+  Project Structure
 ```
 traffic-sign-recognition/
 ├── data/
@@ -148,7 +148,7 @@ traffic-sign-recognition/
     └── inference/             Sample detections
 ```
 
- 🧪 Experimental Results
+ Experimental Results
 
  SGD Model Performance
 - Achieved 92.0% mAP@0.5 and 86.9% mAP@0.5:0.95
@@ -160,7 +160,7 @@ traffic-sign-recognition/
 - Achieved 71.2% mAP@0.5 and 67.0% mAP@0.5:0.95
 - More sensitive to learning rate fluctuations
 
- 🔄 Challenges & Solutions
+  Challenges & Solutions
 1. Class Imbalance: Some classes underrepresented in dataset
    - Solution: Targeted augmentation for minority classes
    
@@ -173,22 +173,22 @@ traffic-sign-recognition/
 4. Optimizer Selection: Trade-off between convergence speed and final accuracy
    - Solution: Comparative study of SGD vs Adam
 
- 📚 References
+ References
 1. Stallkamp et al. - "German Traffic Sign Recognition Benchmark" (2012)
 2. Redmon et al. - "You Only Look Once: Unified, Real-Time Object Detection" (2016)
 3. Ultralytics YOLOv5 - GitHub repository and documentation
 4. Albumentations - Fast image augmentation library
 
- 👥 Authors
+  Authors
 Waleed Umer (s5336317)  
 Griffith University  
 Course: 7510ENG - Image Processing and Machine Vision  
 Supervisors: Mr. Joel Dedini, Dr. Andrew Busch
 
- 📄 License
+ License
 This project is for academic purposes as part of Griffith University coursework. The GTSRB dataset is publicly available for research use.
 
- 🌟 Acknowledgments
+ Acknowledgments
 - Griffith University School of Engineering
 - Ultralytics for YOLOv5 implementation
 - Google Colab for computational resources
